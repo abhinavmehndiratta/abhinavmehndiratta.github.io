@@ -65,6 +65,7 @@ ul.social-network li {
         <ul class="social-network social-circle">
           <li><a href="https://github.com/abhinavmehndiratta" class="icoGithub" title="Github"><i class="fa fa-github"></i></a></li>
           <li><a href="mailto:abhinavmehndiratta@gmail.com" class="icoEnvelope" title="Email"><i class="fa fa-envelope"></i></a></li>
+		<li><a href="https://in.linkedin.com/in/abhinav-mehndiratta-0b478816a" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
     </div>
