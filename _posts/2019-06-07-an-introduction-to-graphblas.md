@@ -368,7 +368,7 @@ row: 1 : 2 entries [1:2]
 
 {% endhighlight %}
 
-Don't forget to free the objects you create using the `GrB_free` method and `GrB_finalize` must be called as the last GraphBLAS operation.
+Don't forget to free the objects you created using the `GrB_free` method and `GrB_finalize` must be called as the last GraphBLAS operation.
 
 Well, that pretty much sums it up. I'll write more about GraphBLAS and using it to solve graph problems in the future.
 
