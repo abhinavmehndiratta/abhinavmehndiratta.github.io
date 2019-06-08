@@ -5,7 +5,7 @@ title:  "An introduction to GraphBLAS"
 
 The GraphBLAS project is an open effort to define standard building blocks for graph algorithms in the language of linear algebra. 
 
-I'll try to give a brief overview of GraphBLAS API here, but for more details, it is best to refer to the API specification and the SuiteSparseGraphBLAS.jl documentation (work in progress).
+I'll try to give a brief overview of the GraphBLAS API here, but for more details, it is best to refer to the API specification and the SuiteSparseGraphBLAS.jl documentation (work in progress).
 
 First and foremost, you need to initialize GraphBLAS. `GrB_init` must called before any other GraphBLAS operation. `GrB_init` defines the mode that GraphBLAS will use:  blocking or non-blocking. With blocking mode, all operations finish before returning to the user application. With non-blocking mode, operations can be left pending, and are computed only when needed.
 
@@ -226,8 +226,8 @@ A mathematical notation for supported GraphBLAS operations is shown in the table
 <br/><br/>
 
 ## A simple matrix multiplication program
-Now, let's put together everything we've learnt so far to write a program which computes C = C + A * B' and we only want the lower triagular portion of the matrix using GraphBLAS. We'll use `+` as the accumulate operator and set the descriptor to transpose the second input & clear C before assigning the new values. We use a mask to assign values to only the lower half of the matrix.
-We'll not be using any built-in algebric objects for this, although that would reduce our work significantly.
+Now, let's put together everything we've learnt so far to write a program using GraphBLAS which computes the lower triagular portion of the matrix <i>C = C + A * B' </i>. We'll use `+` as the accumulate operator and set the descriptor to transpose the second input & clear C before assigning the new values. We use a mask to assign values to only the lower half of the matrix.
+We'll not use any built-in algebric objects for this, although that would reduce our work significantly.
 
 Let's suppose the matrices we consider are -
 {% highlight julia %}
