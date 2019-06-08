@@ -28,6 +28,9 @@ julia> I = I.-1; J = J.-1;
 Let's build a GraphBLAS adjacency matrix using I, J, X. The number of entries will be twice the number of edges in the graph.
 
 {% highlight julia %}
+julia> GrB_init(GrB_NONBLOCKING)
+GrB_SUCCESS::GrB_Info = 0
+
 julia> A = GrB_Matrix{Int64}()
 GrB_Matrix{Int64}
 

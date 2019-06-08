@@ -266,6 +266,9 @@ Let's now do this using GraphBLAS :
 {% highlight julia %}
 julia> using SuiteSparseGraphBLAS
 
+julia> GrB_init(GrB_NONBLOCKING)
+GrB_SUCCESS::GrB_Info = 0
+
 julia> A = GrB_Matrix{Int64}()
 GrB_Matrix{Int64}
 
