@@ -63,7 +63,7 @@ julia> function GrB_bfs(                # BFS of a graph (using vector assign & 
 
            GrB_Vector_new(v, GrB_INT64, n)                              # Vector<int32_t> v(n) = 0
            GrB_assign(v, GrB_NULL, GrB_NULL, 0, GrB_ALL, n, GrB_NULL)   # make v dense
-           n = GrB_Vector_nvals(v) ;                                    # finish pending work on v
+           n = GrB_Vector_nvals(v)                                      # finish pending work on v
 
            GrB_Vector_new(q, GrB_BOOL, n)                               # Vector<bool> q(n) = false
            GrB_Vector_setElement(q, true, s)                            # q[s] = true, false elsewhere
@@ -103,7 +103,7 @@ julia> function GrB_bfs(                # BFS of a graph (using vector assign & 
            GrB_free(Boolean)
            GrB_free(desc)
 
-           return v;
+           return v
        end
 GrB_bfs (generic function with 1 method)
 {% endhighlight %}
