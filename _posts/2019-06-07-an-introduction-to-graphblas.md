@@ -90,7 +90,7 @@ A GraphBLAS monoid $$ M =〈D, \odot, 0〉$$ is defined by a single domain D, an
 You can create a monoid with a binary operator and the identity value.
 
 ## Semirings
-A GraphBLAS semiring (or semiring for short) $$ S =〈D_{out} , D_{in1} , D_{in2} , ⊕, ⊗, 0 〉$$ is defined by three
+A GraphBLAS semiring $$ S =〈D_{out} , D_{in1} , D_{in2} , ⊕, ⊗, 0 〉$$ is defined by three
 domains $$ D_{out}, D_{in1}, D_{in2} $$ ; an associative and commutative additive operation $$ ⊕ : D_{out} ×
 D_{out} → D_{out}$$ ; a multiplicative operation $$ ⊗ : D_{in1} × D_{in2} → D_{out} $$ ; and an identity element $$ 0 ∈ D_{out} $$ .
 
