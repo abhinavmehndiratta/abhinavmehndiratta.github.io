@@ -3,6 +3,7 @@ layout: post
 title:  "Triangle Counting"
 ---
 
+<img src="../assets/triangles.gif">
 Triangle counting is an important problem in graph mining. Two frequently used metrics in complex network analysis that require the count of triangles are the clustering coefficients & the transitivity ratio of the graph. Triangle counting is used in several real-world applications, such as detection of spamming activity, uncovering the hidden thematic structure of the web & link recommendation in online social networks.
 Clustering coefficient is used as an index for measuring the concentration of clusters in graphs & its tendency to decompose into communities. It has also been demonstrated that the age of a community is related to the density of triangles i.e., when a group has just formed, people pull in their like-minded friends, but the number of triangles is relatively small. If A brings in friends B & C, it may well be that B & C do not know each other. As the community matures, B & C may interact because of their membership in the community. Thus, there is a good chance that at sometime the triangle {A,B,C} will be completed.
 
