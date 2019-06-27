@@ -89,7 +89,7 @@ julia> function GrB_bfs(                # BFS of a graph (using vector assign & 
                 GrB_vxm(q, v, GrB_NULL, Boolean, q, A, desc)
 
                 # successor = ||(q)
-                successor = GrB_reduce(GrB_NULL, Lor, q, GrB_NULL)
+                successor = GrB_reduce(Lor, q, GrB_NULL)
 
                 level += 1
            end
