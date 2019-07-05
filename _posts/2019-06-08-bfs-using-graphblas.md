@@ -9,7 +9,7 @@ Here, I present a simple BFS code written in Julia using GraphBLAS. This algorit
 
 Okay, so first let's create a SimpleGraph(a LightGraphs type) using the facebook undirected graph from SNAP Datasets and extract it's adjacency matrix.
 {% highlight julia %}
-julia> using SuiteSparseGraphBLAS, SparseArrays, LightGraphs, SNAPDatasets
+julia> using GraphBLASInterface, SuiteSparseGraphBLAS, SparseArrays, LightGraphs, SNAPDatasets
 
 julia> g = loadsnap(:facebook_combined)
 {4039, 88234} undirected simple Int64 graph
@@ -20,7 +20,7 @@ julia> adj = adjacency_matrix(g);
 Now we'll extract tuples from this adjacency matrix and convert to 0 based indexing.
 
 {% highlight julia %}
-julia> I, J, X = findnz(adj);
+julia> I, J, X = SparseArrays.findnz(adj);
 
 julia> I = I.-1; J = J.-1;
 {% endhighlight %}

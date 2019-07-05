@@ -10,7 +10,7 @@ I'll try to give a brief overview of the GraphBLAS API here, but for more detail
 First and foremost, you need to initialize GraphBLAS. `GrB_init` must called before any other GraphBLAS operation. `GrB_init` defines the mode that GraphBLAS will use:  blocking or non-blocking. With blocking mode, all operations finish before returning to the user application. With non-blocking mode, operations can be left pending, and are computed only when needed.
 
 {% highlight julia %}
-julia> using SuiteSparseGraphBLAS
+julia> using GraphBLASInterface, SuiteSparseGraphBLAS
 
 julia> GrB_init(GrB_NONBLOCKING)
 GrB_SUCCESS::GrB_Info = 0
@@ -264,7 +264,7 @@ julia> LowerTriangular(C)
 Let's now do this using GraphBLAS :
 
 {% highlight julia %}
-julia> using SuiteSparseGraphBLAS
+julia> using GraphBLASInterface, SuiteSparseGraphBLAS
 
 julia> GrB_init(GrB_NONBLOCKING)
 GrB_SUCCESS::GrB_Info = 0

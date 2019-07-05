@@ -11,7 +11,7 @@ In this post, I'll implement an algorithm for counting triangles in a graph usin
 
 First we create a new GraphBLAS matrix using the facebook graph from SNAP Datasets.
 {% highlight julia %}
-julia> using SuiteSparseGraphBLAS, SparseArrays, LightGraphs, SNAPDatasets, BenchmarkTools
+julia> using GraphBLASInterface, SuiteSparseGraphBLAS, SparseArrays, LightGraphs, SNAPDatasets, BenchmarkTools
 
 julia> g = loadsnap(:facebook_combined)
 {4039, 88234} undirected simple Int64 graph
@@ -21,7 +21,7 @@ julia> I, J, X = SparseArrays.findnz(adjacency_matrix(g));
 julia> GrB_init(GrB_NONBLOCKING)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> A = GrB_Matrix(I, J, X)
+julia> A = GrB_Matrix(I.-1, J.-1, X)
 GrB_Matrix{Int64}
 {% endhighlight %}
 
