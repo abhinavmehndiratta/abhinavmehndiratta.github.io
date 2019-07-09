@@ -94,10 +94,6 @@ julia> function GrB_bfs(                # BFS of a graph (using vector assign & 
                 level += 1
            end
 
-           # make v sparse
-           GrB_Descriptor_set(desc, GrB_MASK, GxB_DEFAULT)         # mask not inverted
-           GrB_assign(v, v, GrB_NULL, v, GrB_ALL, n, desc)
-
            GrB_free(q)
            GrB_free(Lor)
            GrB_free(Boolean)
