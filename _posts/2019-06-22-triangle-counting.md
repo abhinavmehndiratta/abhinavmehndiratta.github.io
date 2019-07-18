@@ -21,7 +21,7 @@ julia> I, J, X = SparseArrays.findnz(adjacency_matrix(g));
 julia> GrB_init(GrB_NONBLOCKING)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> A = GrB_Matrix(I.-1, J.-1, X)
+julia> A = GrB_Matrix(OneBasedIndex.(I), OneBasedIndex.(J), X)
 GrB_Matrix{Int64}
 {% endhighlight %}
 

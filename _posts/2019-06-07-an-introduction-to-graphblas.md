@@ -108,7 +108,7 @@ GrB_Vector{Int64}
 julia> GrB_Vector_new(V, GrB_INT64, 5)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> I = [1, 2, 4]; X = [2, 32, 4]; n = 3;
+julia> I = ZeroBasedIndex[1, 2, 4]; X = [2, 32, 4]; n = 3;
 
 julia> GrB_Vector_build(V, I, X, n, GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
@@ -124,7 +124,7 @@ GrB_Vector{Int64}
 julia> GrB_Vector_new(V, GrB_INT64, 5)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> I = [1, 1, 2, 4]; X = [2, 3, 32, 4]; n = 4;
+julia> I = ZeroBasedIndex[1, 1, 2, 4]; X = [2, 3, 32, 4]; n = 4;
 
 julia> GrB_Vector_build(V, I, X, n, GrB_PLUS_INT64)
 GrB_SUCCESS::GrB_Info = 0
@@ -156,7 +156,7 @@ GrB_Matrix{Int8}
 julia> GrB_Matrix_new(MAT, GrB_INT8, 4, 4) # Create a new 4x4 matrix
 GrB_SUCCESS::GrB_Info = 0
 
-julia> I = [1,2,2,2,3]; J = [1,2,1,3,3]; X = Int8[2,3,4,5,6]; n = 5;
+julia> I = ZeroBasedIndex[1, 2, 2, 2, 3]; J = ZeroBasedIndex[1, 2, 1, 3, 3]; X = Int8[2, 3, 4, 5, 6]; n = 5;
 
 julia> GrB_Matrix_build(MAT, I, J, X, n, GrB_FIRST_INT8)
 GrB_SUCCESS::GrB_Info = 0
@@ -275,7 +275,7 @@ GrB_Matrix{Int64}
 julia> GrB_Matrix_new(A, GrB_INT64, 2, 2)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> GrB_Matrix_build(A, [0, 0, 1, 1], [0, 1, 0, 1], [1, 2, 3, 4], 4, GrB_FIRST_INT64)
+julia> GrB_Matrix_build(A, ZeroBasedIndex[0, 0, 1, 1], ZeroBasedIndex[0, 1, 0, 1], [1, 2, 3, 4], 4, GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
 
 julia> B = GrB_Matrix{Int64}()
@@ -284,7 +284,7 @@ GrB_Matrix{Int64}
 julia> GrB_Matrix_new(B, GrB_INT64, 2, 2)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> GrB_Matrix_build(B, [0, 0, 1, 1], [0, 1, 0, 1], [5, 6, 7, 8], 4, GrB_FIRST_INT64)
+julia> GrB_Matrix_build(B, ZeroBasedIndex[0, 0, 1, 1], ZeroBasedIndex[0, 1, 0, 1], [5, 6, 7, 8], 4, GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
 
 julia> C = GrB_Matrix{Int64}()
@@ -293,7 +293,7 @@ GrB_Matrix{Int64}
 julia> GrB_Matrix_new(C, GrB_INT64, 2, 2)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> GrB_Matrix_build(C, [0, 0, 1, 1], [0, 1, 0, 1], [9, 10, 11, 12], 4, GrB_FIRST_INT64)
+julia> GrB_Matrix_build(C, ZeroBasedIndex[0, 0, 1, 1], ZeroBasedIndex[0, 1, 0, 1], [9, 10, 11, 12], 4, GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
 
 julia> function multiply(a, b)
@@ -348,7 +348,7 @@ GrB_Matrix{Bool}
 julia> GrB_Matrix_new(Mask, GrB_BOOL, 2, 2)
 GrB_SUCCESS::GrB_Info = 0
 
-julia> GrB_Matrix_build(Mask, [0, 1, 1], [0, 0, 1], collect(trues(3)), 3, GrB_FIRST_INT64)
+julia> GrB_Matrix_build(Mask, ZeroBasedIndex[0, 1, 1], ZeroBasedIndex[0, 0, 1], collect(trues(3)), 3, GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
 
 julia> GrB_mxm(C, Mask, PLUS, PLUS_TIMES_SEMIRING, A, B, desc)

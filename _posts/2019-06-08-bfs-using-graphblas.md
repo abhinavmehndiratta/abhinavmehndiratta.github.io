@@ -17,12 +17,10 @@ julia> g = loadsnap(:facebook_combined)
 julia> adj = adjacency_matrix(g);
 {% endhighlight %}
 
-Now we'll extract tuples from this adjacency matrix and convert to 0 based indexing.
+Now we'll extract tuples from this adjacency matrix.
 
 {% highlight julia %}
 julia> I, J, X = SparseArrays.findnz(adj);
-
-julia> I = I.-1; J = J.-1;
 {% endhighlight %}
 
 Let's build a GraphBLAS adjacency matrix using I, J, X. The number of entries will be twice the number of edges in the graph.
@@ -37,7 +35,7 @@ GrB_Matrix{Int64}
 julia> GrB_Matrix_new(A, GrB_INT64, nv(g), nv(g))
 GrB_SUCCESS::GrB_Info = 0
 
-julia> GrB_Matrix_build(A, I, J, X, 2*ne(g), GrB_FIRST_INT64)
+julia> GrB_Matrix_build(A, OneBasedIndex.(I), OneBasedIndex.(J), X, 2*ne(g), GrB_FIRST_INT64)
 GrB_SUCCESS::GrB_Info = 0
 
 {% endhighlight %}
@@ -46,7 +44,7 @@ Now we write a function which performs the BFS traversal of a graph, given the a
 {% highlight julia %}
 julia> function GrB_bfs(                # BFS of a graph (using vector assign & reduce)
                 A::GrB_Matrix,          # input graph, treated as if boolean in semiring
-                s::GrB_Index            # starting node of the BFS
+                s::Abstract_GrB_Index   # starting node of the BFS
             )
 
            #--------------------------------------------------------------------------
@@ -106,12 +104,12 @@ GrB_bfs (generic function with 1 method)
 
 (`GrB_ALL` <i>is used to specify all rows/columns of a vector/matrix. The parameter ni/nj is ignored.</i>)
 
-Okay, time to test this. Note that vertices in LightGraphs range from 1:nv(g). While using GraphBLAS the vertices begin with 0.
+Okay, time to test this.
 
 {% highlight julia %}
 julia> source = 1;
 
-julia> V = GrB_bfs(A, source-1);
+julia> V = GrB_bfs(A, OneBasedIndex(source));
 
 julia> dists = GrB_Vector_extractTuples(V)[2];
 
