@@ -32,7 +32,7 @@ julia> function count_triangles(A)
                C = GrB_Matrix(Int64, size(A)...)
 
                # Descriptor for mxm
-               desc_tb = GrB_Descriptor(Dict(GrB_INP1 => GrB_TRAN)) # transpose the second matrix
+               desc_tb = GrB_Descriptor(GrB_INP1 => GrB_TRAN) # transpose the second matrix
 
                GrB_mxm(C, L, GrB_NULL, GxB_PLUS_TIMES_INT64, L, L, desc_tb) # C<L> = L ∗.+ L'
                ntriangles = GrB_reduce(GxB_PLUS_INT64_MONOID, C, GrB_NULL)
