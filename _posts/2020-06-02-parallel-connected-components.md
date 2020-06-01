@@ -64,6 +64,6 @@ The first step in each of these method is partitioning the graph and assigning a
 **On 6 threads**
 <img src="../assets/bench.png">
 
-Surprisingly, random hooking was faster than deterministic hooking. This was probably due to the extra step involved in deterministic to scan edges and chose a hooking direction.
+Surprisingly, random hooking was faster than deterministic hooking. This was probably due to the extra step involved in deterministic to scan edges and chose a hooking direction. However, both of them were slower than the serial algorithm (Union-Find). I expect the performance to improve with more cores.
 
 Pointer Jumping outperforms every other approach and gives almost a 2X speedup over the serial algorithm.
