@@ -61,7 +61,9 @@ After each step only vertices(v) where `Parent[v] == v` and edges(u => v) where 
 The first step in each of these method is partitioning the graph and assigning almost equal number of edges to each thread. LightGraphs stores a graph in the form of sorted adjacency lists, so it is not possible to directly use `@threads` macro for `edges(g)` since we cannot do `getindex` operation on the iterator. Although we could write an edge iterator which supports `@threads`, I'm not sure if it'll be effecient since each `getindex` call will take `log(|V|)` time. So, I used a greedy function that partitions the vertex set based of degree.
 
 ## Benchmarks
-**On 6 cores**
+**On 6 threads**
+<img src="../assets/bench.png">
 
+Surprisingly, random hooking was faster than deterministic hooking. This was probably due to the extra step involved in deterministic to scan edges and chose a hooking direction.
 
-Clearly, Pointer Jumping outperforms every other approach.
+Pointer Jumping outperforms every other approach and gives almost a 2X speedup over the serial algorithm.
