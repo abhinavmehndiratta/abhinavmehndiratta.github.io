@@ -3,7 +3,7 @@ layout: post
 title:  "An introduction to GraphBLAS"
 ---
 
-The GraphBLAS project is an open effort to define standard building blocks for graph algorithms in the language of linear algebra. 
+The GraphBLAS project is an open effort to define standard building blocks for graph algorithms in the language of linear algebra.  
 
 I'll try to give a brief overview of the GraphBLAS API here, but for more details, it is best to refer to the API specification and the SuiteSparseGraphBLAS.jl documentation (work in progress).
 
