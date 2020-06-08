@@ -5,7 +5,7 @@ title:  "BFS using GraphBLAS"
 
 <img src="../assets/bfs_gif.gif">
 
-Here, I present a simple BFS code written in Julia using GraphBLAS. This algorithm is taken straight from the API documentation & may not be the fastest method but it's just for a simple illustration.
+Here I present a simple BFS code written in Julia using GraphBLAS. This algorithm is taken straight from the API documentation & may not be the fastest method but it's just for a simple illustration.
 
 Okay, so first let's create a SimpleGraph(a LightGraphs type) using the facebook undirected graph from SNAP Datasets and extract it's adjacency matrix.
 {% highlight julia %}
