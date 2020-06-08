@@ -40,10 +40,10 @@ The method starts with a parent function `P[v] = v` for each vertex and tries to
 There are three steps in this algorithm,
 
 1) Opportunistic Pointer Jumping: Vertex u finds that out of all its neighbors, v has the smallest numbered parent. Therefore, u changes it parent to `P[w] = P[P[v]]` rather than `P[P[u]]`.
-<img src="../assets/opj2.png" style='max-width:40%;height:auto>
+<img src="../assets/opj2.png" style='max-width:40%;height:auto'>
 
 2) Tree Hanging: Vertex u finds that its former child, v, has found a smaller numbered parent during the opportunistic pointer jumping step (i.e., `w = P'[v] < P'[u]`). The tree hanging step changes the parent of u from `P'[u]` to `w = P'[v]`, if w is the minimum of the new parents of the old children of u.
-<img src="../assets/opj3.png" style='max-width:40%;height:auto>
+<img src="../assets/opj3.png" style='max-width:40%;height:auto'>
 
 3) Normal Pointer Jumping: `P[u] = P[P[u]]`
 
