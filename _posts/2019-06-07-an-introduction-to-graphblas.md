@@ -219,7 +219,7 @@ A mathematical notation for supported GraphBLAS operations is shown in the table
 
 <img src="../assets/operation_list_img.png" style="width: auto; max-height: 100%;">
 <br/><br/>
-<center><b><h3>Flowchart for the GraphBLAS operations</h3></b></center>
+<center><b><h3>Flowchart for GraphBLAS operations</h3></b></center>
 <br/><br/>
 <img src="../assets/operation_img.jpg" style="width: auto; max-height: 100%;">
 
