@@ -31,6 +31,8 @@ Then you scan all edges and hook each vertex to a neighbor with larger label (or
 
 You apply this method recursively on the contracted graph and in each step the number of vertices will be reduced by a factor of at least 1/2.
 
+Refer [here][sb] for more details on Random and Deterministic Hooking.
+
 ## Opportunistic Pointer Jumping
 This method is based on *"Connected-Components algorithms for Mesh-Connected Parallel Computers
 Goddard, Kumar and Prins"*.
@@ -67,3 +69,5 @@ The first step in each of these method is partitioning the graph and assigning a
 Surprisingly, random hooking was faster than deterministic hooking. This was probably due to the extra step involved in deterministic to scan edges and chose a hooking direction. However, both of them were slower than the serial algorithm (Union-Find). I expect the performance to improve with more cores.
 
 Pointer Jumping outperforms every other approach and gives almost a 2X speedup over the serial algorithm.
+
+[sb]:https://www3.cs.stonybrook.edu/~rezaul/Spring-2017/CSE613/CSE613-lecture-9.pdf
