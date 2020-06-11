@@ -69,7 +69,7 @@ julia> @btime tricount(adj)
 
 Seems like the masked version is a bit faster.
 
-This is just a simple & fast approach to triangle counting & there might be better ways of implementing this using Julia's standard library or GraphBLAS but the purpose here is to illustrate the new high level Julian interface for GraphBLAS.
+This is just a simple approach to triangle counting & there might be better ways of implementing this using Julia's standard library or GraphBLAS but the purpose here is to illustrate the new high-level Julian interface for GraphBLAS.
 
 [ssgb]:https://github.com/abhinavmehndiratta/SuiteSparseGraphBLAS.jl
 [KokkosKernels]:http://faculty.cse.tamu.edu/davis/GraphBLAS_files/Davis_HPEC18.pdf
