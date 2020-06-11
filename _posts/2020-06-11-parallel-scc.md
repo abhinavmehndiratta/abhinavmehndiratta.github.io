@@ -147,7 +147,7 @@ end
 {% endhighlight %}
 
 ## Results
-I benchmarked the code with 6 threads on many real-world graphs and observed a slowdown of about 2-3X in comparison to Tarjan's algorithm. This slowdown was probably due the following reasons -
+I benchmarked the code with 6 threads on many real-world graphs and observed a slowdown of about 2-3X in comparison to Tarjan's algorithm. The slowdown was probably due the following reasons -
 1. Most real graphs have a single large SCC, this causes the algorithm to esentially run sequentially. Since we spawn a task for every color, if there's only a single color with a large vertex set, it will reduce parallelism. One solution to increase parallelism is to use parallel BFS for traversal, but this will cause a lot of overhead.
 
 2. Overhead in using `@spawn`: I observed that the code allocated a lot more memory when using spawn, I'm not sure what caused this.
