@@ -21,9 +21,9 @@ We utilize task parallelism for this.
 An optimization to the algorithm is the Trim step which removes all trivial SCCs before starting FW-BW. The procedure is simple: all vertices that have an indegree or outdegree of zero are removed. Trimming can also be performed recursively, as removing a vertex will change the effective degrees of its neighbors.
 
 ## Code
-`Color[u]` represents the set vertex u belongs to, initially all vertices belong to the same set (`Color[u] = 0`) and we divide this set recursively.
+`color[u]` represents the set vertex u belongs to, initially all vertices belong to the same set (`color[u] = 0`) and we divide this set recursively.
 
-While benchmarking, I found recursive trim did not give any significant speedup, so we'll only perform a single iteration of trim. All trimmed verticed have `Color[u] = -1`.
+While benchmarking, I found recursive trim did not give any significant speedup, so we'll only perform a single iteration of trim. All trimmed verticed have `color[u] = -1`.
 
 We use a color generator which generates a unique color for marking descendants(`cfw`), ancestors(`cbw`) and the vertices belonging to the pivot's SCC (`cscc`). The color generator is basically an atomic variable which is incremented everytime we need to get a unique color.
 
@@ -31,7 +31,7 @@ We use DFS for traversing the graph starting from the pivot, although we can als
 
 `@spawn` marks any piece of program for execution, and a task will be started to run that code automatically on an available thread. To read more about `@spawn`, refer [here][juliablog].
 
-The new visitor functions in LightGraphs make the code really simple. We just have to import the `newvisitfn!`, which is called whenever a new vertex is discovered during the traversal and modify our traversal state. All visitor functions return a `VisitorReturnValue`. `VSUCCESS` indicates that the traversal should continue normally, while `VSKIP` means that we can skip exploring the current neighbor and move on to the next branch.
+The new visitor functions in LightGraphs simplify the code. We just have to import the `newvisitfn!`, which is called whenever a new vertex is discovered during the traversal and modify our traversal state. All visitor functions return a `VisitorReturnValue`. `VSUCCESS` indicates that the traversal should continue normally, while `VSKIP` means that we can skip exploring the current neighbor and move on to the next branch.
 
 {% highlight julia %}
 
