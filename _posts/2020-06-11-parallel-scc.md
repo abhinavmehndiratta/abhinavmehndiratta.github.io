@@ -38,7 +38,6 @@ The new visitor functions in LightGraphs simplify the code. We just have to impo
 using LightGraphs
 using Base.Threads
 import Base.Threads: @spawn
-using SNAPDatasets, BenchmarkTools
 using LightGraphs: SimpleDiGraph
 import LightGraphs.Traversals: newvisitfn!
 using LightGraphs.Traversals: traverse_graph!, TraversalState, DepthFirst
